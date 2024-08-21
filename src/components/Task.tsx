@@ -15,6 +15,7 @@ const Task = (props: Props) => {
         <Card.Body>
           <Row className="justify-content-between align-items-start">
             <Col>{STATUS}</Col>
+            <Col>{STATUS}</Col>
           </Row>
         </Card.Body>
       </Card>
