@@ -3,9 +3,24 @@
   border-radius: 4px;
 }
 
+.status-content {
+  padding: 0.75rem;
+}
+
 .status {
-  background: var(--COLOR-GRAY-LIGHT);
   padding: 0.25rem;
   border-radius: 4px;
   font-weight: 500;
+}
+
+.PLANNED {
+  background: var(--COLOR-GRAY-LIGHT);
+}
+
+.ONGOING {
+  background: var(--COLOR-ONGOING);
+}
+
+.DONE {
+  background: var(--COLOR-DONE);
 }
