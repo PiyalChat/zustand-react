@@ -10,13 +10,20 @@ const Task = (props: Props) => {
   const { title } = props;
   return (
     <Container fluid>
-      <Card className="text-left">
+      <Card className="text-start">
         <Card.Header>{title}</Card.Header>
         <Card.Body>
           <Row className="justify-content-between align-items-start">
-            <Col>{STATUS}</Col>
+            <Col>Content</Col>
           </Row>
         </Card.Body>
+        <Card.Footer>
+          <Row className="d-flex justify-content-end align-items-end">
+            <Col xs className="text-end">
+              <span className="status">{STATUS}</span>
+            </Col>
+          </Row>
+        </Card.Footer>
       </Card>
     </Container>
   );

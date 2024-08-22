@@ -50,9 +50,6 @@ export default tseslint.config({
 ```
 
 
-<p align="center">
-  <img src="docs/bear.jpg" />
-</p>
 
 # Zustand + React
 
