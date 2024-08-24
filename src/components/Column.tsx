@@ -12,6 +12,7 @@ import Task from "./Task";
 import { useStore } from "../store";
 import { useShallow } from "zustand/react/shallow";
 import { useState } from "react";
+import classNames from "classnames";
 
 type Props = {
   state: string;
@@ -23,14 +24,33 @@ const Column = (props: Props) => {
   const [open, setOpen] = useState<boolean>(false);
   const [taskTitle, setTaskTitle] = useState<string>("");
   const [taskContent, setTaskContent] = useState<string>("");
+  const [onDrop, setOnDrop] = useState<boolean>(false);
 
   const tasks = useStore(
     useShallow((store) => store.tasks.filter((task) => task.state === state))
   );
-
+  const setDraggedTask = useStore((store) => store.setDraggedTask);
   const addTask = useStore((store) => store.addTask);
+  const draggedTask = useStore((store) => store.draggedTask);
+  const moveTask = useStore((store) => store.moveTask);
   return (
-    <Container fluid className="column">
+    <Container
+      fluid
+      className={classNames("column", { drop: onDrop })}
+      onDragOver={(e) => {
+        setOnDrop(true);
+        e.preventDefault();
+      }}
+      onDragLeave={(e) => {
+        setOnDrop(false);
+        e.preventDefault();
+      }}
+      onDrop={() => {
+        setOnDrop(false);
+        moveTask(draggedTask.title, draggedTask.content, state);
+        setDraggedTask({ title: "", content: "" });
+      }}
+    >
       <Stack gap={3}>
         <Row>
           <Col className="text-center">{state}</Col>

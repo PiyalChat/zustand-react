@@ -20,17 +20,28 @@ const Task = (props: Props) => {
         }
     )
   );
+  const setDraggedTask = useStore((store) => store.setDraggedTask);
+  const deleteTask = useStore((store) => store.deleteTask);
   return (
     <Container fluid>
-      <Card className="text-start">
-        <Card.Header>
+      <Card
+        className="text-start"
+        draggable
+        onDragStart={() => {
+          setDraggedTask({ title: task.title, content: task.content });
+        }}
+      >
+        <Card.Header className="card-title-draggable">
           <Container fluid>
             <Row>
               <Col>{task?.title}</Col>
               <Col xs="auto">
-                <Button variant="outline-danger" size="sm">
-                  <i className="bi bi-dash"></i>
-                  <small className="fw-semibold">Delete</small>
+                <Button
+                  variant="outline-danger"
+                  size="sm"
+                  onClick={() => deleteTask(task.title)}
+                >
+                  <i className="bi bi-trash"></i>
                 </Button>
               </Col>
             </Row>

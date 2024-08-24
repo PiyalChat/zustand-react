@@ -9,3 +9,7 @@
   padding-top: 0.25rem;
   padding-bottom: 1rem;
 }
+
+.column.drop {
+  border: dashed white 4px;
+}
