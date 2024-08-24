@@ -6,7 +6,9 @@
 .status-content {
   padding: 0.75rem;
 }
-
+.card-title-draggable {
+  cursor: move;
+}
 .status {
   padding: 0.25rem;
   border-radius: 4px;
