@@ -1,14 +1,14 @@
-import { Container } from "react-bootstrap";
 import "./App.css";
 import Column from "./components/Column";
+import { FlexGrid } from "@carbon/react";
 
 function App() {
   return (
-    <Container fluid className="App">
+    <FlexGrid className="App">
       <Column state="PLANNED" />
       <Column state="ONGOING" />
       <Column state="DONE" />
-    </Container>
+    </FlexGrid>
   );
 }
 
