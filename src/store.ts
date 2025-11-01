@@ -12,7 +12,7 @@ type ITask = {
   state: string;
 };
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const store = (set: any) => ({
+const taskStore = (set: any) => ({
   tasks: [] as ITask[],
   draggedTask: { title: "", content: "" } as IDraggedTask,
   addTask: (title: string, content: string, state: string) =>
@@ -52,4 +52,4 @@ const store = (set: any) => ({
   },
 });
 
-export const useStore = create(persist(devtools(store), { name: "store" }));
+export const useStore = create(persist(devtools(taskStore), { name: "store" }));
